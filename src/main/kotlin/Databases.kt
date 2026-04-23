@@ -10,7 +10,7 @@ import io.ktor.server.routing.get
 import io.ktor.server.routing.post
 import io.ktor.server.routing.put
 import io.ktor.server.routing.routing
-import org.jetbrains.exposed.sql.Database
+import org.jetbrains.exposed.v1.jdbc.Database
 import java.sql.Connection
 import java.sql.DriverManager
 
@@ -33,7 +33,7 @@ fun Application.configureDatabases() {
       try {
         val city = cityService.read(id)
         call.respond(HttpStatusCode.OK, city)
-      } catch (e: Exception) {
+      } catch (_: Exception) {
         call.respond(HttpStatusCode.NotFound)
       }
     }
@@ -111,7 +111,7 @@ fun Application.configureDatabases() {
  * user and password values.
  *
  *
- * @param embedded -- if [true] defaults to an embedded database for tests that runs locally in the same process.
+ * @param embedded -- if true defaults to an embedded database for tests that runs locally in the same process.
  * In this case you don't have to provide any parameters in configuration file, and you don't have to run a process.
  *
  * @return [Connection] that represent connection to the database. Please, don't forget to close this connection when
