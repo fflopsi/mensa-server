@@ -1,9 +1,9 @@
 [versions]
 exposed = "0.61.0"
-h2 = "2.3.232"
-kotlin = "2.3.0"
-ktor = "3.4.2"
-logback = "1.4.14"
+h2 = "2.4.240"
+kotlin = "2.3.21"
+ktor = "3.4.3"
+logback = "1.5.13"
 postgres = "42.7.10"
 
 [libraries]
